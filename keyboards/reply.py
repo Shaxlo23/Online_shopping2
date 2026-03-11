@@ -1,0 +1,27 @@
+from aiogram.types import ReplyKeyboardMarkup,KeyboardButton
+
+def register():
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="Register")]
+        ],resize_keyboard=True
+    )
+
+def start_reply():
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="Mahsulotlar"),KeyboardButton(text="Mening buyurtmalarim")],
+            [KeyboardButton(text="Profile")]
+        ],
+        resize_keyboard=True
+    )
+
+def start_reply_admin():
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text="mahsulotlar"),KeyboardButton
+             (text="mening buyurtmalarim")],
+             [KeyboardButton(text="Profile"),KeyboardButton(text="Admin panel")]
+        ],
+        resize_keyboard=True
+    )
