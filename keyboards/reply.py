@@ -25,3 +25,12 @@ def start_reply_admin():
         ],
         resize_keyboard=True
     )
+
+    def admin_panel():
+        return ReplyKeyboardMarkup(
+            keyboard=[
+                [KeyboardButton(text="Mahsulotlar"),KeyboardButton(text="Mening buyurtmalarim")],
+                [KeyboardButton(text="Profile"),KeyboardButton(text="Admin panel")]
+            ],
+            resize_keyboard=True
+        )

@@ -39,3 +39,4 @@ class Database:
     async def get_user_role(self,telegram_id):
         query = """SELECT role FROM users WHERE telegram_id=$1"""
         return await self.pool.fetchval(query,telegram_id)
+    
