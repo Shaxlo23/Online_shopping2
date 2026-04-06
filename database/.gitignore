@@ -1,0 +1,70 @@
+# --- Virtual environments ---
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# --- Python bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Distribution / packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+*.whl
+
+# --- Logs and temporary files ---
+*.log
+*.tmp
+*.bak
+*.swp
+
+# --- IDE and editor files ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.pydevproject
+
+# --- OS generated files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Jupyter Notebook checkpoints ---
+.ipynb_checkpoints/
+
+# --- Coverage and testing ---
+.coverage
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# --- Environments and dependency files ---
+Pipfile.lock
+poetry.lock
+.venv/
+
+# --- MyPy type checker ---
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# --- C extensions / compiled files ---
+*.so
+*.dylib
+*.dll
+*.pyd
+
+# --- PyInstaller ---
+*.manifest
+*.spec
