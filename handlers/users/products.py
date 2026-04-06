@@ -45,3 +45,43 @@ async def zakaz(call:CallbackQuery,db):
         text,
         reply_markup=payment_keyboard()
     )
+
+@router.callback_query(F.data=="pay_card")
+async def pay_card(call:CallbackQuery,db):
+    user_id= await db.get_user_id(call.from_user.id)
+
+    await db.confirm_order(user_id)
+
+    await call.message.answer(
+        "To'lov uchun karta:\n"
+        "8600 1234 5678 9012\n\n"
+        "To'lov qilgandan so'ng chek yuboring."
+    )
+
+
+@router.callback_query(F.data=="pay_cash")
+async def pay_cash(call:CallbackQuery,db):
+    user_id= await db.get_user_id(call.from_user.id)
+
+    await db.confirm_order(user_id)
+
+    await call.message.answer(
+        "Buyurtmangiz qabul qilindi!\n"
+        "Courier yetkazib beganda naqd to'laysiz."
+    )
+
+
+@router.message(F.text == "Mening buyurtmalarim")
+async def nun(msg: Message, db):
+    user_id = await db.get_user_id(msg.from_user.id)
+    orders = await db.get_user_order_history(user_id)
+    
+    for order_id, data in orders.items():
+        text = f"📦 Order #{order_id}\n"
+        
+        for p in data["products"]:
+            text += f"- {p['name']} ({p['price']} so'm)\n"
+            
+        text += f"\n💰 Total: {data['total']} so'm"
+        
+        await msg.answer(text=text)

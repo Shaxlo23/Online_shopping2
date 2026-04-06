@@ -28,8 +28,19 @@ async def register(msg:Message,state:FSMContext):
     await state.set_state(RegisterState.age)
 
 @router.message(RegisterState.age)
-async def register(msg:Message,state:FSMContext):
-    await state.update_data(age=int(msg.text))
+async def register(msg: Message, state: FSMContext):
+
+    if not msg.text.isdigit():
+        await msg.answer("Iltimos, yoshni faqat raqamda kiriting!")
+        return
+
+    age = int(msg.text)
+
+    if age < 10 or age > 100:
+        await msg.answer("Yosh 10 dan 100 gacha bo'lishi kerak!")
+        return
+
+    await state.update_data(age=age)
     await msg.answer("Telefon raqamingizni kiriting: ")
     await state.set_state(RegisterState.phone_number)
 
