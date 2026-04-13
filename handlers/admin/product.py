@@ -21,9 +21,9 @@ async def add_product(msg:Message,state:FSMContext):
     
 @router.message(AddProductState.price)
 async def add_product_price(msg: Message, state: FSMContext):
-    if not msg.text.isdigit():
-        await msg.answer("Narx faqat raqam bo'lishi kerak!")
-        return
+    # if not msg.text.isdigit():
+    #     await msg.answer("Narx faqat raqam bo'lishi kerak!")
+    #     return
     await msg.answer("Mahsulot description kiriting: ")
     await state.set_state(AddProductState.description)
 
