@@ -24,11 +24,6 @@ async def add_product_price(msg: Message, state: FSMContext):
     if not msg.text.isdigit():
         await msg.answer("Narx faqat raqam bo'lishi kerak!")
         return
-    price = int(msg.text)
-    if price <= 0:
-        await msg.answer("Narx 0 dan katta bo'lishi kerak!")
-        return
-    await state.update_data(price=price)
     await msg.answer("Mahsulot description kiriting: ")
     await state.set_state(AddProductState.description)
 
